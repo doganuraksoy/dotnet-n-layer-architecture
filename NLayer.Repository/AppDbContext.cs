@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NLayer.Repository
 {
-    internal class AppDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         //options ile veri tabanı yolunu startup dosyasından verebilmek için oluşturdum appdbcontext 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

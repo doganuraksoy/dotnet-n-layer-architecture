@@ -1,4 +1,5 @@
-﻿using NLayer.Core.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using NLayer.Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,26 +7,38 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace NLayer.Repository.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
+        protected readonly AppDbContext _context;
+        private readonly DbSet<T> _dbset;
+
+        public GenericRepository(AppDbContext context, DbSet<T> dbset)
+        {
+            _context = context;
+            _dbset = _context.Set<T>();
+        }
+
+
+
 
         //veritabanında işlem yapabilmek için appdbcontext e ihtiyacım var
 
-        public Task AddAsync(T entity)
+        public async Task AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _dbset.AddAsync(entity);
         }
 
-        public Task AddRangeAsync(IEnumerable<T> entities)
+        public async Task AddRangeAsync(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            await _dbset.AddRangeAsync(entities);
         }
 
-        public Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await _dbset.AnyAsync(expression);
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
