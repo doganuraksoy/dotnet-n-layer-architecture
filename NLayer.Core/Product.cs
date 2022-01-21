@@ -13,6 +13,8 @@ namespace NLayer.Core
        
         public Decimal Price { get; set; }
         public int CategoryId { get; set; }
+        
+        public int deneme { get; set; }
 
         public Category Category { get; set; }
 
