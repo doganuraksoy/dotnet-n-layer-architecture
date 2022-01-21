@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace NLayer.Repository
 {
-    internal class AppDbContext:DbContext 
+    internal class AppDbContext : DbContext
     {
         //options ile veri tabanı yolunu startup dosyasından verebilmek için oluşturdum appdbcontext 
-        public AppDbContext(DbContextOptions<AppDbContext>options):base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-                  
+
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -27,8 +27,28 @@ namespace NLayer.Repository
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+            modelBuilder.Entity<ProductFeature>().HasData(
+            new ProductFeature()
+            {
+                Id = 1,
+                Color = "kırmızı",
+                Height = 100,
+                width = 200,
+                ProductId = 1
+            },
+            new ProductFeature()
+
+            {
+                Id = 2,
+                Color = "mavi",
+                Height = 300,
+                width = 20,
+                ProductId = 2
+            }
+            );
+
             //model oluşurken çalışacak metotlar 
-            base.OnModelCreating(modelBuilder); 
+            base.OnModelCreating(modelBuilder);
         }
 
 
