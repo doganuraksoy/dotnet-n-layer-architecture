@@ -43,32 +43,32 @@ namespace NLayer.Repository.Repositories
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _dbset.AsNoTracking().AsQueryable();
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+           return await _dbset.FindAsync(id);
         }
 
         public void Remove(T entity)
         {
-            throw new NotImplementedException();
+           _dbset.Remove(entity);
         }
 
         public void RemoveRange(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            _dbset.RemoveRange(entities);
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _dbset.Update(entity);
         }
 
         public IQueryable<T> Where(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+           return _dbset.Where(expression);
         }
     }
 }
