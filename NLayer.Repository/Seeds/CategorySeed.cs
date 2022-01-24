@@ -17,7 +17,7 @@ namespace NLayer.Repository.Seeds
             builder.HasData(
                 new Category { Id = 1, Name = "kalemler" },
                 new Category { Id = 2, Name = "kitaplar" },
-                new Category { Id = 2, Name = "Defterler" }
+                new Category { Id = 3, Name = "Defterler" }
                 );
         }
     }
