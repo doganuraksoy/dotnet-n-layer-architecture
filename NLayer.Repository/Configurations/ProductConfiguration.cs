@@ -22,7 +22,6 @@ namespace NLayer.Repository.Configurations
 
             builder.HasOne(x=>x.Category).WithMany(x=>x.Products).HasForeignKey(x=>x.CategoryId);
 
-            throw new NotImplementedException();
         }
     }
 }

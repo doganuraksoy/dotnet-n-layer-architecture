@@ -3,6 +3,7 @@ using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
 using NLayer.Repository;
+using NLayer.Repository.Repositories;
 using NLayer.Repository.UnitOfWorks;
 using System.Reflection;
 
@@ -16,7 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped( typeof(IGenericRepository<>),typeof(IGenericRepository<>));
+builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
 //builder.Services.AddScoped( typeof(IService<>),typeof(service<>));
 
 
