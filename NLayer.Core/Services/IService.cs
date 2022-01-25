@@ -12,11 +12,14 @@ namespace NLayer.Core.Services
         //repo dan alınan kodlar burada işlenebilir
         //bussines işlemler burada gerçekleşir
         Task<T> GetByIdAsync(int id);
-        IQueryable<T> Where(Expression<Func<T, bool>> expression);
         Task<IEnumerable<T>> GetAllAsync();
+        IQueryable<T> Where(Expression<Func<T, bool>> expression);
+       
         Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
-        Task AddRangeAsync(IEnumerable<T> entities);
-        Task AddAsync(T entity);
+
+        Task<T> AddAsync(T entity);
+        Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities);
+        
         Task UpdateAsync(T entity);
         Task RemoveAsync(T entity);
         Task RemoveRangeAsync(IEnumerable<T> entities);

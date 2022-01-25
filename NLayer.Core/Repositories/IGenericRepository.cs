@@ -15,7 +15,7 @@ namespace NLayer.Core.Repositories
 
         //veritabanına yapılacak olan sorguyu oluşturdum.
         IQueryable<T> Where(Expression<Func<T, bool>> expression);
-        IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
+        IQueryable<T> GetAll();
 
         //IQueryable where ifadesinden sonra ordeyby ı da alır bana direk olarak sıralar.
         Task<bool>AnyAsync(Expression<Func<T, bool>> expression);
