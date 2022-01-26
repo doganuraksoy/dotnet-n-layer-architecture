@@ -14,11 +14,11 @@ namespace NLayer.Core.DTOs
         public int StatusCode { get; set; }//dış dünyaya açmak istemiyorum.
         public List<String> Errors { get; set; }
         //nesne oluşturma işlemini kontrol altına aldım.
-        public static CustomResponseDto<T> success(int StatusCode, T Data)
+        public static CustomResponseDto<T> Success(int StatusCode, T Data)
         {
             return new CustomResponseDto<T> { StatusCode = StatusCode, Data = Data ,Errors=null};
         }
-        public static CustomResponseDto<T> success(int StatusCode)
+        public static CustomResponseDto<T> Success(int StatusCode)
         {
             return new CustomResponseDto<T> { StatusCode = StatusCode };
         }

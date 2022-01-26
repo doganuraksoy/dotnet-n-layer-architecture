@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/**
 namespace NLayer.Repository
 {
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
@@ -16,6 +16,7 @@ namespace NLayer.Repository
             var connectionString = "Data Source=DESKTOP-7QCF7NV;Initial Catalog=NLayerDbb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             builder.UseSqlServer(connectionString);
             return new AppDbContext(builder.Options);
-        }
-    }
+       
+    } 
 }
+}**/
